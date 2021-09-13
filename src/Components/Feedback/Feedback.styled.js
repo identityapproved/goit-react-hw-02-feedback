@@ -7,4 +7,8 @@ export const FeedbackBtn = styled.button`
   border-radius: 23px;
   padding: 12px 24px;
   color: ${props => `${props.theme.colors.black}`};
+  transition: all 250ms ease-in;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

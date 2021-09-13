@@ -10,6 +10,4 @@ export const StatsListItem = styled.li`
   justify-content: space-around;
   align-items: center;
   padding: 5px;
-  /* border:;
-  background-color:; */
 `;

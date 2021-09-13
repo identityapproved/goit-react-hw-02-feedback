@@ -1,4 +1,5 @@
 import { FeedbackOptions } from 'Components/Feedback/Feedback';
+import { Notification } from 'Components/Notification/Notification';
 import { Section } from 'Components/Section/Section';
 import { Statistic } from 'Components/Statistics/Statistics';
 import React, { Component } from 'react';
@@ -31,15 +32,19 @@ export default class App extends Component {
         <Section title="Please, leave feedback.">
           <FeedbackOptions options={Object.keys(this.state)} leaveFeedback={this.onLeaveFeedback} />
         </Section>
-        <Section title="Statistic:">
-          <Statistic
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
-        </Section>
+        {this.countTotalFeedback() ? (
+          <Section title="Statistic:">
+            <Statistic
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          </Section>
+        ) : (
+          <Notification message="No feedback given..." />
+        )}
       </>
     );
   }
